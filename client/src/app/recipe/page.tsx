@@ -15,11 +15,12 @@ interface Recipe {
 const Recipe = () => {
 
     const [recipes, setRecipes] = useState<Recipe[]>([]);
+    const [error, setError] = useState<string>();
 
     const getRecipes = async () => {
         try {
 
-            const response = await fetch("http://localhost:1337/api/recipes")
+            const response = await fetch("http://192.168.0.114:1337/api/recipes")
                 .then(response => response.json())
                 .catch(error => {
                     throw error;
@@ -27,8 +28,9 @@ const Recipe = () => {
 
             setRecipes(response?.data);
 
-        } catch (error) {
+        } catch (error:any) {
             console.error(error);
+            setError(error?.message);
         }
     }
 
@@ -56,9 +58,12 @@ const Recipe = () => {
                                         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
                                     </div>
                                 </div>
-
                             </div>
                         ))
+                    }
+
+                    {
+                        error
                     }
             </main>
 
