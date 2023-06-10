@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "recipes",
+  "collectionName": "street_foods",
   "info": {
-    "singularName": "recipe",
-    "pluralName": "recipes",
-    "displayName": "Recipe",
+    "singularName": "street-food",
+    "pluralName": "street-foods",
+    "displayName": "Street Food",
     "description": ""
   },
   "options": {
@@ -15,12 +15,10 @@
     "title": {
       "type": "string",
       "required": true,
-      "unique": true,
-      "minLength": 2
+      "unique": true
     },
     "description": {
-      "type": "richtext",
-      "required": false
+      "type": "richtext"
     }
   }
 }
